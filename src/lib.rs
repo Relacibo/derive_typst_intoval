@@ -169,6 +169,11 @@ fn derive_intodict(item: DeriveInput) -> Result<proc_macro::TokenStream> {
           )
         }
       }
+      impl From<#ty> for Dict {
+        fn from(value: #ty) -> Self {
+          value.into_dict()
+        }
+      }
     }
     .into(),
   )
